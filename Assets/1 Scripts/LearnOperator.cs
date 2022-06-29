@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 學習運算子
+/// 1. 學習運算子
+/// 2. 比較運算子
+/// 3. 邏輯運算子
+/// </summary>
 public class LearnOperator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float a = 10;
+    private float b = 4;
+    // 加 +
+    // 減 -
+    // 乘 *
+    // 除 /
+    // 餘 %
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        print("加法:" + (a + b));
+        print("減法:" + (a - b));
+        print("乘法:" + (a + b));
+        print("除法:" + (a + b));
+        print("取餘數:" + (a % b));
     }
 }
