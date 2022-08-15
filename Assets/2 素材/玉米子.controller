@@ -31,7 +31,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: "\u89F8\u767C"
+    m_ConditionEvent: "\u89F8\u767C\u653B\u64CA"
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3431615352034894577}
@@ -56,7 +56,7 @@ AnimatorController:
   m_Name: "\u7389\u7C73\u5B50"
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: "\u89F8\u767C"
+  - m_Name: "\u89F8\u767C\u653B\u64CA"
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
