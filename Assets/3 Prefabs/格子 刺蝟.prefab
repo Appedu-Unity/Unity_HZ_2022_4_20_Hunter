@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5315133381365380906}
   - component: {fileID: 5315133381365380907}
   - component: {fileID: 5138775469470813180}
+  - component: {fileID: -4754884436233941107}
   m_Layer: 0
   m_Name: "\u683C\u5B50 \u523A\u875F"
   m_TagString: Untagged
@@ -63,6 +64,20 @@ MonoBehaviour:
   goDamage: {fileID: 2940906213828807653, guid: a646cebbfad9d7545a18f3f851500557, type: 3}
   imgHP: {fileID: 4915460987097670014}
   textHP: {fileID: 1944656462701119926}
+  dataEnemy: {fileID: 11400000, guid: a730f770d28307c47abb51e676904bdb, type: 2}
+  aniEnemy: {fileID: 5315133381579802940}
+--- !u!114 &-4754884436233941107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315133381365380917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0aa92c3e6a54d4b93a665e95f796c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3764022165702816604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,5 +294,10 @@ PrefabInstance:
 --- !u!4 &5315133381572585184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400060, guid: 0d3c605385d6d9547a1e3f24e8248962, type: 3}
+  m_PrefabInstance: {fileID: 5315133381572459612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5315133381579802940 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 0d3c605385d6d9547a1e3f24e8248962, type: 3}
   m_PrefabInstance: {fileID: 5315133381572459612}
   m_PrefabAsset: {fileID: 0}

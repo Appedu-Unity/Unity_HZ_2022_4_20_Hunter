@@ -12,10 +12,15 @@ namespace WEI
         #region  資料
         // [] 陣列
         // SerializeField 將私人欄位顯示 
-        [Header("怪物陣列"),SerializeField] private GameObject[] gaEnemys;
-        [Header("生成格子第二排座標"),SerializeField]private Transform[] traSecondPlace;
+        [Header("怪物陣列"), SerializeField] private GameObject[] gaEnemys;
+        [Header("生成格子第二排座標"), SerializeField] private Transform[] traSecondPlace;
 
-        [Header("序列畫欄位的清單"),SerializeField] private List<Transform> listSceondPlace = new List<Transform>();
+        [Header("序列畫欄位的清單"), SerializeField] private List<Transform> listSceondPlace = new List<Transform>();
+
+        /// <summary>
+        /// 怪物的存活總數
+        /// </summary>
+        public int totalCountEnemylive;
         #endregion
 
         #region  事件
@@ -28,13 +33,13 @@ namespace WEI
         /// <summary>
         /// 隨機生成敵人
         /// </summary>
-        private void SpawnRandomEnemy()
+        public void SpawnRandomEnemy()
         {
             int main = 2;                       //格子數量的最小值
             int max = traSecondPlace.Length - 1;//格子數量的最大值
 
             int randomCount = Random.Range(main, max);
-            print("取得隨機的怪物數量"+randomCount);
+            //print("取得隨機的怪物數量"+randomCount);
 
             //清單 = 陣列.轉為清單();
             listSceondPlace = traSecondPlace.ToList();
@@ -47,7 +52,7 @@ namespace WEI
 
             //要扣除的數量
             int sub = traSecondPlace.Length - randomCount;
-            print("要扣除的數量" + sub);
+            //print("要扣除的數量" + sub);
 
             // 迴圈 刪除 要扣掉的數量
             for (int i = 0; i < sub; i++)
@@ -68,14 +73,17 @@ namespace WEI
                 }
                 else
                 {
-                // 隨機怪物
-                int randomIndex = Random.Range(0, gaEnemys.Length);
-                // 生成怪物
-                Instantiate(
-                    gaEnemys[randomIndex],
-                    listSceondPlace[i].position,
-                    Quaternion.identity);
+                    // 隨機怪物
+                    int randomIndex = Random.Range(0, gaEnemys.Length);
+                    // 生成怪物
+                    Instantiate(
+                        gaEnemys[randomIndex],
+                        listSceondPlace[i].position,
+                        Quaternion.identity);
+
                 }
+                print("彈珠與怪物數量" + totalCountEnemylive);
+                totalCountEnemylive++;
             }
         }
         #endregion
