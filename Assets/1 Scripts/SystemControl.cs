@@ -25,7 +25,7 @@ namespace WEI
         [Header("攻擊的參數名稱")]
         private string parAttack = "觸發攻擊";
         [Header("彈珠發射速度"), Range(0, 5000)]
-        private float speedMarble = 1000;
+        private float speedMarble = 2500;
         [Header("彈珠發射間隔"), Range(0, 10)]
         public float intervalMarble = 0.1f;
         [Header("彈珠數量")]
@@ -57,6 +57,9 @@ namespace WEI
 
             cameraMouse = GameObject.Find("轉換滑鼠用的攝影機").GetComponent<Camera>();
             traMouse = GameObject.Find("座標轉換後實體物件").transform;
+
+            //物理 忽略圖層碰撞(圖層1(int),圖層2(int))
+            Physics.IgnoreLayerCollision(3, 3);
         }
 
         private void Update()
@@ -77,12 +80,12 @@ namespace WEI
             
             // 1.滑鼠座標
             Vector3 posMouse = Input.mousePosition;
-            print("<clor=yellow>滑鼠座標:" + posMouse + "</color>");
+            //print("<clor=yellow>滑鼠座標:" + posMouse + "</color>");
             // 跟攝影機的 Y 軸一樣
             posMouse.z = 25;
             // 2.滑鼠座標轉為世界座標
             Vector3 pos = cameraMouse.ScreenToWorldPoint(posMouse);
-            pos.y = 1.5f;
+            pos.y = 0.3f;
             // 3.世界座標給實體物件
             traMouse.position = pos;
             //  此物件的變形，面向(座標轉換後實體物件)
@@ -94,6 +97,7 @@ namespace WEI
         /// </summary>
         private void ShootMarbleTotal()
         {
+            //如果 不能發射 就跳出
             if (!canShootMarble) return;
 
             // 滑鼠按下左鍵時 箭頭顯示
