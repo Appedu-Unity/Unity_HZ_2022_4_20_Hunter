@@ -12,6 +12,7 @@ namespace WEI
         #region  資料
         // [] 陣列
         // SerializeField 將私人欄位顯示 
+        [Header("格子 彈珠"), SerializeField] private GameObject gaMarble;
         [Header("怪物陣列"), SerializeField] private GameObject[] gaEnemys;
         [Header("生成格子第二排座標"), SerializeField] private Transform[] traSecondPlace;
 
@@ -88,6 +89,5 @@ namespace WEI
         }
         #endregion
 
-        [Header("格子 彈珠"), SerializeField] private GameObject gaMarble;
     }
 }

@@ -9,5 +9,7 @@ namespace WEI
     {
         [Header("¦å¶q"), Range(0, 10000)] public float hp;
         [Header("¶Ë®`"), Range(0, 10000)] public float damage;
+        [Header("±¼¸¨ª÷¹ô¹w»sª«")] public GameObject goCoin;
+        [Header("±¼¸¨ª÷¹ô½d³ò")] public Vector2Int vector2Int;
     }
 }

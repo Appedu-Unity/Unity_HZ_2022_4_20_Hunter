@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1500
   damage: 150
+  goCoin: {fileID: 3154336857211627790, guid: 040c6135662bcd7478bf9383c7426f78, type: 3}
+  vector2Int: {x: 3, y: 20}

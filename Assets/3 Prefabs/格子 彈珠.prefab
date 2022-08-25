@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5298273588366387633}
   - component: {fileID: 5298273588366387638}
   - component: {fileID: 8892030065362400526}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u683C\u5B50 \u5F48\u73E0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5298273588366387639}
   m_Material: {fileID: 13400000, guid: 5d3ea4df4e9c1824098d0c9011d1fd12, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

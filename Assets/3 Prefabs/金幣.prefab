@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 640576258463588951}
   - component: {fileID: 2812248898448145137}
   - component: {fileID: 2812248898448145136}
-  m_Layer: 0
+  - component: {fileID: 1265013423446689029}
+  m_Layer: 6
   m_Name: "\u91D1\u5E63"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3154336857211627790}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 10.749692, y: 1.29, z: -14.220204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!33 &1667035073242348561
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,7 +115,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!75 &2812248898448145136
 ConstantForce:
@@ -128,3 +129,17 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 300}
+--- !u!114 &1265013423446689029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154336857211627790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1aec85f01cc24429fefc1fc1f37304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayFly: 1.5
+  speed: 0.65

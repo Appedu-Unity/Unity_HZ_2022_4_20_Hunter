@@ -49,7 +49,7 @@ namespace WEI
             imgHP.fillAmount = hp / dataEnemy.hp;   //將血量百分比轉為福點數並對上相對應的血條圖片變化
             aniEnemy.SetTrigger(parDamage); //播放受傷動畫
             Vector3 pos = transform.position + Vector3.up;
-            SystemDamage tempDamage = Instantiate(goDamage,pos,Quaternion.Euler(50,0,0)).GetComponent<SystemDamage>();
+            SystemDamage tempDamage = Instantiate(goDamage, pos, Quaternion.Euler(50, 0, 0)).GetComponent<SystemDamage>();
             tempDamage.damage = getDamage;  //更新傷害直
 
             if (hp <= 0)
@@ -63,6 +63,25 @@ namespace WEI
             //print("死亡");
             Destroy(gameObject);
             systemSpawn.totalCountEnemylive--;
+            DropCoin();
+        }
+        /// <summary>
+        /// 掉落金幣
+        /// </summary>
+        private void DropCoin()
+        {
+            int range = Random.Range(dataEnemy.vector2Int.x, dataEnemy.vector2Int.y);
+            for (int i = 0; i < range; i++)
+            {
+                //隨機前後左右
+                float x = Random.Range(-1, 1);
+                float z = Random.Range(-1, 1);
+
+                Instantiate(
+                    dataEnemy.goCoin,
+                    transform.position + new Vector3(0, 2.5f, z),
+                    Quaternion.Euler(90, 180, 0));
+            }
         }
 
     }
