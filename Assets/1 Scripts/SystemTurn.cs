@@ -34,6 +34,8 @@ namespace WEI
 
         private bool canSpawn = true;
 
+        private int countMarbleEat;
+
         private void Awake()
         {
             systemControl = GameObject.Find("玉米子").GetComponent<SystemControl>();
@@ -48,7 +50,7 @@ namespace WEI
             totalCountMarble = systemControl.canShootMarbleTotal;
 
             totalRacycIeMarble++;
-            print("<Color == yellow>彈珠總數" + totalRacycIeMarble + "</color>");
+            //print("<Color == yellow>彈珠總數" + totalRacycIeMarble + "</color>");
 
             if (totalRacycIeMarble == totalCountMarble)
             {
@@ -76,6 +78,16 @@ namespace WEI
             systemControl.canShootMarble = true;
             canSpawn = true;
             totalRacycIeMarble = 0; //歸零 重新計算回收數量
+
+            #region
+            systemControl.canShootMarbleTotal += countMarbleEat;
+            countMarbleEat = 0;
+            #endregion
+        }
+
+        public void MarbleEat()
+        {
+            countMarbleEat++;
         }
     }
 }

@@ -20,13 +20,51 @@ namespace WEI
         private string parDamage = "觸發";
         #endregion
 
+        /// <summary>
+        /// 碰到會受傷的物件名稱
+        /// </summary>
+        [SerializeField, Header("碰到會受傷的物件名稱")]
+        private string nameHurtObject;
+        [Header("玩家接受傷害區域")]
+        [SerializeField] private Vector3 v3DamageSize;
+        [SerializeField] private Vector3 v3DamagePosition;
+        [SerializeField, Header("接受傷害的圖層")]
+        private LayerMask layerDamage;
+
+
         private SystemSpawn systemSpawn;
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = new Color(.2f, 1, .2f, .5f);
+            Gizmos.DrawCube(v3DamagePosition, v3DamageSize);
+        }
 
         private void Awake()
         {
             hp = dataEnemy.hp;
             textHP.text = hp.ToString();    //一開始的文字更新，可在一開始就抓取Data資料
             systemSpawn = GameObject.Find("生成怪物系統").GetComponent<SystemSpawn>();
+        }
+
+        private void Update()
+        {
+            CheckObjectInDamageArea();
+        }
+        /// <summary>
+        /// 檢查物件是否進入受傷區域
+        /// </summary>
+        private void CheckObjectInDamageArea()
+        {
+            Collider[] hits = Physics.OverlapBox(
+                v3DamagePosition, v3DamageSize / 2,
+                Quaternion.identity,layerDamage);
+            if (hits.Length > 0)
+            {
+                GetDamage();
+                Destroy(hits[0].gameObject);
+                //print("進到受傷區域的物件:" + hits[0]);
+            }
         }
         // 碰撞事件
         // 1. 兩個物件必須有一個帶有 Rigidbody
@@ -35,7 +73,7 @@ namespace WEI
         private void OnCollisionEnter(Collision collision)
         {
             //print("碰撞到的物件:" + collision.gameObject);
-            GetDamage();
+            if (collision.gameObject.name.Contains(nameHurtObject)) GetDamage();
         }
         /// <summary>
         /// 受傷
@@ -58,6 +96,9 @@ namespace WEI
             }
         }
 
+        /// <summary>
+        /// 死亡
+        /// </summary>
         private void Dead()
         {
             //print("死亡");
@@ -65,6 +106,7 @@ namespace WEI
             systemSpawn.totalCountEnemylive--;
             DropCoin();
         }
+
         /// <summary>
         /// 掉落金幣
         /// </summary>
