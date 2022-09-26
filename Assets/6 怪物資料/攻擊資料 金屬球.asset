@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe200fdf66562146a7053a628b0769e, type: 3}
   m_Name: "\u653B\u64CA\u8CC7\u6599 \u91D1\u5C6C\u7403"
   m_EditorClassIdentifier: 
-  attack: 100
+  attack: 200
   attackFloat: 20

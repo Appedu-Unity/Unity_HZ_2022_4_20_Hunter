@@ -67,12 +67,15 @@ MonoBehaviour:
   textHP: {fileID: 7686002724976969610}
   dataEnemy: {fileID: 11400000, guid: 52577047bd4aefe45943e1206f9dc06e, type: 2}
   aniEnemy: {fileID: 5250319334350847574}
+  isPlayer: 0
   nameHurtObject: "\u91D1\u5C6C\u7403"
   v3DamageSize: {x: 0, y: 0, z: 0}
   v3DamagePosition: {x: 0, y: 0, z: 0}
   layerDamage:
     serializedVersion: 2
     m_Bits: 0
+  soundHurt: {fileID: 8300000, guid: d6a565b3ea4a3cc499591b8ccaf3cc01, type: 3}
+  soundDead: {fileID: 8300000, guid: dd98b799257e24f4688479f352f241ba, type: 3}
 --- !u!114 &3986390119623715931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0aa92c3e6a54d4b93a665e95f796c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDistance: 2
 --- !u!114 &1090353791194759740
 MonoBehaviour:
   m_ObjectHideFlags: 0

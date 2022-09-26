@@ -30,6 +30,8 @@ namespace WEI
         public float intervalMarble = 0.1f;
         [Header("彈珠數量")]
         public TextMeshProUGUI textMableCount;
+        [SerializeField, Header("發射彈珠音效")]
+        private AudioClip soundshoot;
 
         private Animator ani;
         /// <summary>
@@ -92,6 +94,7 @@ namespace WEI
             transform.LookAt(traMouse);
 
         }
+
         /// <summary>
         /// 發射彈珠
         /// </summary>
@@ -114,6 +117,7 @@ namespace WEI
                 StartCoroutine(SpawnMarble());
             }
         }
+
         /// <summary>
         /// 生成彈珠附帶間隔時間
         /// </summary>
@@ -136,6 +140,8 @@ namespace WEI
                 // transform.forward 腳色的前方
                 tempMarble.GetComponent<Rigidbody>().AddForce(transform.forward * speedMarble);
 
+                SystemSound.instance.PlaySound(soundshoot, new Vector2(0.7f, 1.2f));
+
                 total--;
 
                 if (total > 0) textMableCount.text = "X" + total;
@@ -146,6 +152,7 @@ namespace WEI
 
             }
         }
+
         /// <summary>
         /// 回收彈珠
         /// </summary>

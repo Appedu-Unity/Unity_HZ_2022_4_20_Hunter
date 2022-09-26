@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace WEI {
+namespace WEI
+{
     public class SystemMarbleEat : MonoBehaviour
     {
         private string nameMarblePlayer = "金屬球";
@@ -8,6 +9,8 @@ namespace WEI {
 
         private void Awake()
         {
+            //透過類型尋找物件<類型>()
+            //* 搜尋的類型場景上只能有一個
             systemTurn = FindObjectOfType<SystemTurn>();
         }
         private void OnTriggerEnter(Collider other)

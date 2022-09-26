@@ -19,6 +19,9 @@ namespace WEI
         private float hp;
         private string parDamage = "觸發";
         #endregion
+        [SerializeField, Header("是否為玩家")]
+        private bool isPlayer;
+        private SystemFinal systemFinal;
 
         /// <summary>
         /// 碰到會受傷的物件名稱
@@ -45,6 +48,7 @@ namespace WEI
             hp = dataEnemy.hp;
             textHP.text = hp.ToString();    //一開始的文字更新，可在一開始就抓取Data資料
             systemSpawn = GameObject.Find("生成怪物系統").GetComponent<SystemSpawn>();
+            systemFinal = FindObjectOfType<SystemFinal>();
         }
 
         private void Update()
@@ -58,14 +62,20 @@ namespace WEI
         {
             Collider[] hits = Physics.OverlapBox(
                 v3DamagePosition, v3DamageSize / 2,
-                Quaternion.identity,layerDamage);
+                Quaternion.identity, layerDamage);
             if (hits.Length > 0)
             {
-                GetDamage();
+                GetDamage(hits[0].GetComponent<SystemAttack>().valueAttack);
                 Destroy(hits[0].gameObject);
                 //print("進到受傷區域的物件:" + hits[0]);
             }
         }
+
+        [SerializeField, Header("受傷音效")]
+        private AudioClip soundHurt;
+        [SerializeField, Header("死亡音效")]
+        private AudioClip soundDead;
+
         // 碰撞事件
         // 1. 兩個物件必須有一個帶有 Rigidbody
         // 2. 兩個物件必須有碰撞器   Collider
@@ -73,14 +83,14 @@ namespace WEI
         private void OnCollisionEnter(Collision collision)
         {
             //print("碰撞到的物件:" + collision.gameObject);
-            if (collision.gameObject.name.Contains(nameHurtObject)) GetDamage();
+            if (collision.gameObject.name.Contains(nameHurtObject))
+                GetDamage(collision.gameObject.GetComponent<SystemAttack>().valueAttack);
         }
         /// <summary>
         /// 受傷
         /// </summary>
-        private void GetDamage()
+        private void GetDamage(float getDamage)
         {
-            float getDamage = 50;
             hp -= getDamage;
             //print("血量剩下" + hp);
             textHP.text = hp.ToString();    //將血量轉換為文字
@@ -89,6 +99,8 @@ namespace WEI
             Vector3 pos = transform.position + Vector3.up;
             SystemDamage tempDamage = Instantiate(goDamage, pos, Quaternion.Euler(50, 0, 0)).GetComponent<SystemDamage>();
             tempDamage.damage = getDamage;  //更新傷害直
+
+            SystemSound.instance.PlaySound(soundHurt, new Vector2(0.7f, 1.2f));
 
             if (hp <= 0)
             {
@@ -101,10 +113,21 @@ namespace WEI
         /// </summary>
         private void Dead()
         {
-            //print("死亡");
-            Destroy(gameObject);
-            systemSpawn.totalCountEnemylive--;
-            DropCoin();
+            SystemSound.instance.PlaySound(soundDead, new Vector2(0.7f, 1.2f));
+
+
+            if (isPlayer)
+            {
+                systemFinal.ShowFinalAndUpdateSubTitle("challenge level failed...");
+            }
+            else
+            {
+                //print("死亡");
+                Destroy(gameObject);
+                systemSpawn.totalCountEnemylive--;
+                DropCoin();
+
+            }
         }
 
         /// <summary>

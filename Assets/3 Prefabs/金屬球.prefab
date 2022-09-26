@@ -4826,8 +4826,8 @@ GameObject:
   - component: {fileID: 6245749983799712500}
   - component: {fileID: 6245749983799712499}
   - component: {fileID: -2972775953713220278}
-  - component: {fileID: 6413727362057829270}
   - component: {fileID: -3719419531336825590}
+  - component: {fileID: -2594465506412000463}
   m_Layer: 3
   m_Name: "\u91D1\u5C6C\u7403"
   m_TagString: Untagged
@@ -4912,7 +4912,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.61
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &6245749983799712499
 Animator:
@@ -4948,20 +4948,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 84
   m_CollisionDetection: 1
---- !u!114 &6413727362057829270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6245749983799712498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c564332202bf3849be90d2f0f09cd42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-3719419531336825590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4976,3 +4964,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataAttack: {fileID: 11400000, guid: 31176ac262e1ea249aaf3787b8e8e66d, type: 2}
   valueAttack: 0
+--- !u!114 &-2594465506412000463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245749983799712498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30654b48f9f62094c9bc6fd4e4deb5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerEnemy:
+    serializedVersion: 2
+    m_Bits: 0
+  timeRecycle: 5
+  V3SpeedRecycle: {x: 0, y: 0, z: 0}

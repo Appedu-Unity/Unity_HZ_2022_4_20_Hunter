@@ -13,7 +13,7 @@ namespace WEI
         /// </summary>
         private SystemTurn systemTurn;
 
-        private float moveDistance = 2;
+        public float moveDistance = 2;
 
         private void Awake()
         {

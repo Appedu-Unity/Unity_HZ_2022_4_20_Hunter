@@ -83,7 +83,7 @@ namespace WEI
                         Quaternion.identity);
 
                 }
-                print("彈珠與怪物數量" + totalCountEnemylive);
+                //print("彈珠與怪物數量" + totalCountEnemylive);
                 totalCountEnemylive++;
             }
         }
